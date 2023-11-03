@@ -8,8 +8,17 @@ const freelancers = [
     { name: "Dr. Wire", price: 47, occupation: "teacher" },
     { name: "Prof. Goose", price: 72, occupation: "driver" },
   ];
-  let sumAllFreelancers = 0;
   const liArray =[];
+
+  const calcAverage =() => {
+    let sumAllFreelancers = 0;
+    let count = 0;
+    for(let i = 0; i < freelancers.length; i++) {
+        sumAllFreelancers += freelancers[i].price;
+        count++;
+    }
+    return sumAllFreelancers / count;
+}
 
 
 const infoBox = document.createElement('div');
@@ -22,11 +31,9 @@ const olFreelancers = document.createElement('ol');
 for(let i =0; i < freelancers.length; i++) {
     liArray[i] = document.createElement('li');
 }
-//const liTag = document.createElement('li');
-//const brTag = document.createElement('br');
 
 h1Title.innerHTML = "Freelancer Forum";
-h2Average.innerHTML = "The average starting price is $30.";
+h2Average.innerHTML = `The average starting price is $${calcAverage()}.`;
 h1Subtotle.innerHTML = "Available Freelancers";
 listBox.innerHTML = "Available Freelancers test";
 
@@ -43,8 +50,7 @@ listBox.appendChild(olFreelancers);
 
 for(let i =0; i < freelancers.length; i++) {
     const element = freelancers[i];
-    console.log(element);
-    sumAllFreelancers += element.price;
     liArray[i].innerHTML = `${element.name}    ${element.occupation}     ${element.price} `;
     olFreelancers.appendChild(liArray[i]);
 }
+
