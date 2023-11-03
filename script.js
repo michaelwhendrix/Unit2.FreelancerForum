@@ -48,6 +48,9 @@ infoBox.appendChild(h1Subtotle);
 listBox.appendChild(listBoxHeaders);
 listBox.appendChild(olFreelancers);
 
+infoBox.setAttribute("style", "border:3px solid black; display:flex; flex-direction:column; align-items:center");
+
+
 for(let i =0; i < freelancers.length; i++) {
     const element = freelancers[i];
     liArray[i].innerHTML = `${element.name}    ${element.occupation}     ${element.price} `;
